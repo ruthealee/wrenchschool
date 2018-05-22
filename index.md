@@ -40,3 +40,4 @@
 ## Reading List
 
 ## Resources
+Initial list located [here](intro-level-resources.md)

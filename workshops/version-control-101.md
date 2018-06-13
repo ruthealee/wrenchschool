@@ -36,6 +36,45 @@ cd ~
 
 When you first try to use the command 'git' you may receive an error, if you do run the command ```git`` on its own and you should be prompted for the option to install it via installing xcode tools. You can do this or you can manually install xcode tools via the app store. 
 
-## 
+Once you've done this you can configure options such as your username, the email address associated with it, as well as any additional details needed. 
+Again we'll ues the official documentation as a guide here: git configure username
+
+
+## Creating a Repository
+You can create a repository directly from the command line or directly from the github UI. The easiest way to do this is probably through the github website. Once you've created your first repository there will be some directions provided on the website that will walk you through how to clone the respitory locally. Simply navigate to the directory you would like the repository located in and run the command. 
+
+If you created aa readme or added a licence these will now be downloaded. Git works by taking *local* files and tracking these against an *origin*. At any point in time you can have multiple *branches* of a repository that may contain different code. When you change a file locally you must first *commit* it to git (often referred to as staging) and then you must *push* the change to the remote branch (aka the repository). Git is weird to get your head around at first but keep going!
+
+We'll use a simple example where all our commits go to our main master branch. We create a repository called 'Zeus' in the cli. We will then clone our repository to our local machine using ```git clone``
+Once we've done that we can create a file, for example:
+```
+touch lightning
+```
+We will now need to tell git that we want to add this file to our repository. You'll only need to ever do this once per file, that's because once git knows a file is part of a respoitory it will begin to track it and any changes made to it. 
+```
+git add lighting
+```
+
+We can now commit the new file:
+```
+git commit -am "adding a new file, lightning"
+```
+Here we've said -am which stands for 'add' and 'message'. It's a good idea to keep your messages verbose so others can easily understand what changes you're making. Remember to commit often, small changes are easier to track bugs down in than big changes.
+Now we need to *push* the change up to the repository (in this case our origin)
+```
+git push
+```
+You might get some complaints about squashing and pushing to unconfigured origins. That's okay, git is quite good at telling you what commands you need to run to resolve the problem, but you can also use the more verbose format of:
+```
+git push origin master
+```
+This essentially says 'push to my configured origin repository (this will have been automatically set when you cloned the repository) the master branch'.
+Eventually you might end up needing to do more complex things and this is where it is useful to know you can add more specifics to your push requests. Master is the default but later we'll discuss branches and forks and you'll see cases where you'd want to specify a branch other than master. 
+You'll see the push succeed and you should then be able to refresh the repository in a browser window and see the new file appear!
+
+ 
+
+
+
 
 

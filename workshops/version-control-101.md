@@ -1,5 +1,6 @@
 # Version Control 101
 
+
 ### Workshop Contents: 
 - What is Version Control
 - Common Version Control 
@@ -60,6 +61,14 @@ We can now commit the new file:
 git commit -am "adding a new file, lightning"
 ```
 Here we've said -am which stands for 'add' and 'message'. It's a good idea to keep your messages verbose so others can easily understand what changes you're making. Remember to commit often, small changes are easier to track bugs down in than big changes.
+
+Now that we've committed it git knows it will want to make a change, but we haven't actually sent the change to the repository. If we wanted to see any 'staged' changes, aka changes waiting for a push we can by checking 
+
+```
+git status
+```
+
+
 Now we need to *push* the change up to the repository (in this case our origin)
 ```
 git push
@@ -72,7 +81,27 @@ This essentially says 'push to my configured origin repository (this will have b
 Eventually you might end up needing to do more complex things and this is where it is useful to know you can add more specifics to your push requests. Master is the default but later we'll discuss branches and forks and you'll see cases where you'd want to specify a branch other than master. 
 You'll see the push succeed and you should then be able to refresh the repository in a browser window and see the new file appear!
 
+To see recent commits to a repository we can then view the log with
+```
+git log
+```
+You'll see a long hash in the output by each commit. This hash is how a commit is uniquely identified within a project. You'll start interacting with commits via their IDs as you become more familiar with the system,. This will let you start doing sweet stuff like pick a change from one branch to another, or create a new branch from a previous commit. 
  
+##Undo! Undo!
+The neat thing about git is that everything can be undone. You can always revert to any previous commit, whether it's pushed to the remote or not. There are a lot of excellent git tutorials out there, so rather than go in depth here we'll just point out to some of these:
+
+General Git:
+https://www.git-game.com/
+
+Git Branching:
+https://learngitbranching.js.org/
+
+##Branching, PRs & General Best Practice
+Generally speaking here's a few rules you should adhere to:
+- When making changes, create a branch dedicated to those changes and once completed pull those changes into the appropriate main branch. Get used to doing this even if it's just your own small project, you can have a master branch and then branch off of that when making changes. Try to get out of the habit of pushing to master. 
+- If you'd like to contribute to a project you should fork the repo and create a branch for your changes. You can then submit a PR from your forked repo to the main repo's branch. 
+- Always check for a hacking.md file before contributing to a project and try to adhere to the instructions in there. 
+- Be polite when suggesting a change that hasn't been requested, especially if you have an accompanying PR. 
 
 
 
